@@ -11,8 +11,7 @@ var express = require('express');
 var app = express();
 
 //required to render static files
-app.set("view options", {layout: false});
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + "/static"));
 
 //route / to display index.html
 app.get('/',function(req,res){
