@@ -2,7 +2,27 @@ var http = require("http");
 var url = require("url");
 var fs = require('fs');
 var sys = require('sys');
-//var request = require('request');
+
+var route = function(path,res){
+    if (path == "/about"){
+        res.writeHead(200,{"Content-Type": "text/plain"});
+        res.write("About page");
+        res.end();
+    }else{
+        res.writeHead(200,{"Content-Type": "text/plain"});
+        res.write("Other pages");
+        res.end();
+    };
+};
+
+http.createServer(function(req, res) {
+    console.log("Request received.");
+    var pathname = url.parse(req.url).pathname;
+    route(pathname,res);
+}).listen(5000,"127.0.0.1");
+console.log("Server has started.");
+
+/*var request = require('request');
 
 var routes = { }; //container that holds routes and respective functions
 
@@ -59,4 +79,4 @@ var start = function(){
 //export for use in another js file
 exports.start = start;
 exports.addRoute = addRoute;
-exports.template = template;
+exports.template = template;*/
