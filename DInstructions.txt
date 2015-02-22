@@ -1,0 +1,16 @@
+in html file make form:
+
+ <form action="/message">
+      <input id="t" type="text" name="message"><br>
+      <button id="s">Send</button>
+  </center>
+  </form>
+  
+  ------------------------------------
+  
+ in index.js file overwrite route:
+ 
+  app.get('/message', function(req, res){
+	var message = req.param('message');
+  res.send(message);
+});
