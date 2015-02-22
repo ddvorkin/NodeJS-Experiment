@@ -58,7 +58,7 @@ http.listen(5000, function(){
 _________ -Getting with Express JS-
 
 
-_________ -Socket.Io- *WIP* 
+_________ -Socket.Io-
 Terminal: npm install socket.io
 
 * Add into index.js * 
@@ -85,6 +85,7 @@ io.on('connection', function(socket){
 
 * At bottom, below buttons in html *
 
+  <script src="/socket.io/socket.io.js"></script>
   <script>
    var field = document.getElementById("messages");  
    var socket = io();

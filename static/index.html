@@ -3,7 +3,6 @@
   <style>
     #messages {border : 1px solid black}
   </style>
-  <script src="/socket.io/socket.io.js"></script>
   <div>
       <center><u><b>Messages:</b></u><br></center>
       <ul id="messages"><ul>
@@ -12,16 +11,4 @@
       <input id="t" type="text" name="message"><br>
       <button id="s">Send</button>
   </center>
-  <script>
-   var field = document.getElementById("messages");
-   var socket = io();
-   socket.on("msg",function(msg){
-       field.innerHTML = field.innerHTML + "<li>" + msg + "</li>";
-   });
-   var button = document.getElementById("s");
-   var text = document.getElementById("t");
-   button.addEventListener("click",function(e){
-       socket.emit("msg",text.value);
-   });
-  </script>
 </html>
